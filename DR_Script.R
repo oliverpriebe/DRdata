@@ -145,8 +145,11 @@
   
   #remove erroneus num sittings values
   DR_ADV_wEyeID <- filter(DR_ADV_wEyeID, DR_ADV_wEyeID$recTreats < 5)
-  
-  
+ 
+  #treatments data starts on 2017-03-20 so must filter to after that date, similarly UID_treatments, ends 2018-06-20.
+  #Will give a 20 day buffer to prevent mis-appropriation of outcome
+  DR_ADV_wEyeID <- filter(DR_ADV_wEyeID, DR_ADV_wEyeID$entereddatetime > ymd("2017-03-20"), 
+                          DR_ADV_wEyeID$entereddatetime < ymd("2018-06-01"))
   #results
   
   #>table(factor(DR_ADV_wEyeID$ScaledComply))
