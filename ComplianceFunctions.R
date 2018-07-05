@@ -87,7 +87,7 @@ ScaledCompliance <- function(df, dateIndex, UID_Treatment, ScNum_ofTreats) {
 
 
 --------------------------------------------------------------------------------------------------------------
-  ##DEPRICATED
+  ##DEPRECATED
   
   #finds number of rec sittings for each patient eye advisory
   ## DEPRECATED WITH EYEID ADVICE SHEET******************
