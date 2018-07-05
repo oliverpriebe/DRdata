@@ -58,14 +58,14 @@ RecSittings_withEyeID <- function(df, dateIndex, UID_Treatment) {
 #OUTPUT: See ScNum_ofTreats
 ScaledCompliance <- function(df, dateIndex, UID_Treatment, ScNum_ofTreats) {
   #get indicies
-  if(missing(ScNum_ofTreats)) {ScNumTreat = FALSE} else {ScNum_ofTreats = TRUE}
+  if(missing(ScNum_ofTreats)) {ScNumTreat = FALSE}
   
   UIDIndex <- grep("UID", colnames(df))
   eyeIndex <- grep("eyepartid", colnames(df))
   noSittingsIndex <- grep("noofsitting", colnames(df))
   
-  if(ScNum_ofTreats) {out <- vector(mode = "logical", length(df))} else {
-    out <- vector(mode = "numerical", length(df))
+  if(ScNum_ofTreats) {out <- vector(mode = "numeric", length(df))} else {
+    out <- vector(mode = "logical", length(df))
   }
   for (i in seq_along(df$UID)) {
     
@@ -80,7 +80,7 @@ ScaledCompliance <- function(df, dateIndex, UID_Treatment, ScNum_ofTreats) {
     if(ScNum_ofTreats) {out[[i]] <- nrow(corUID) } else {
     out[[i]] <- (nrow(corUID) >= RecNumSittings) }
   }
-  print(out)
+  out
 }
 
 
